@@ -231,8 +231,8 @@ sample(1:10)
 # need to add back in condition and use that as grouping mechanism...
 dat1 <- mutate(dat0, across(where(function(xx) length(unique(xx))==2), factor),
                             group = sample(c('test','train'), size =n(), replace=TRUE));
-head(dat1$SYMBOL);
-dat1$SYMBOL %>% table;
+head(dat1$log2FoldChange);
+dat1$log2FoldChange %>% table;
 dat1train <- subset(dat1, subset = group == 'train');
 dat1test <- subset(dat1, subset = group == 'test');
 
@@ -267,4 +267,7 @@ fitAIC <- step(fit, scope = list(lower = fit0, upper = fit1), scale = 0, directi
 summary(fitAIC) %>% tidy;
 
 #' Compare the models
-anova(fit0, fit);
+anova(fit0, fit1);
+plot(fit1)
+plot(dat1test$baseMean, predict(fit1,dat1test)-dat1test$baseMean)
+plot(dat1train$baseMean, predict(fit1)-dat1train$baseMean)
