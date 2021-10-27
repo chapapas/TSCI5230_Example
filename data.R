@@ -271,3 +271,17 @@ anova(fit0, fit1);
 plot(fit1)
 plot(dat1test$baseMean, predict(fit1,dat1test)-dat1test$baseMean)
 plot(dat1train$baseMean, predict(fit1)-dat1train$baseMean)
+
+#' Missed lecture on October 13th
+#' Covered Jupiter - pythons version of R markdown
+
+#' October 27th 2021
+#' Rstudio                      ->    Python
+#' Base: vector                 -> "base": lists
+#'       data.frames            ->         dictionaries "dict"
+#' dplyr: advanced data.frames  -> PANDAS: data.frames
+#' ggplot: advanced graphics    -> matplotlib: plotting
+#' vectorized funtions          -> list comprehension, dict. comprehension
+#' write code faster            -> runs code faster & handles larger data sets faster
+#' [FUN(xx) for xx in YOUR.LIST]
+#' [FUN(xx, yy) for xx, yy in YOUR.LIST]
